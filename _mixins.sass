@@ -1,0 +1,15 @@
+// ---------------------------------------
+//   Some #BADA55 mixins
+// ---------------------------------------
+
+
+// Show an element on hover of it's parent
+// ---------------------------------------
+=show-on-hover($class-name)
+    &:hover
+        #{$class-name}
+            opacity: 1
+
+    #{$class-name}
+        opacity: 0
+        +transition($default-animation-transition)
