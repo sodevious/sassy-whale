@@ -1,10 +1,10 @@
-// ---------------------------------------
+// =============================================
 //   Some #BADA55 mixins
-// ---------------------------------------
+// =============================================
 
 
 // Show an element on hover of it's parent
-// ---------------------------------------
+// ---------------------------------------------
 =show-on-hover($class-name)
     &:hover
         #{$class-name}
@@ -13,3 +13,32 @@
     #{$class-name}
         opacity: 0
         +transition($default-animation-transition)
+
+
+// Fallback for using SVG's as background images
+// ---------------------------------------------
+=svg-image($raster_image_path, $svg_path)
+    background-image: url('../images/#{$raster_image_path}')
+    background-image: url('../images/vector/#{$svg_path}'), none
+    background-repeat: no-repeat
+    background-size: contain
+
+
+// Adds transparent background colors
+// to respective elements for layout testing
+// ---------------------------------------------
+=rresponsive-layout-tester
+    @media (max-width: $default-large-breakpoint)
+        background: rgba(255,0,0,0.25)
+
+    @media (max-width: $default-medium-breakpoint)
+        background: rgba(255,255,0,0.25)
+
+    @media (max-width: $default-small-breakpoint)
+        background: rgba(0,255,255,0.25)
+
+    @media (max-width: $default-extra-small-breakpoint)
+        background: rgba(255,0,255,0.25)
+
+    @media (max-width: $default-extra-extra-small-breakpoint)
+        background: rgba(0,255,0,0.25)
